@@ -51,10 +51,8 @@ function App() {
   };
 
   //Delete todo in firebase
-  const deleteTodo = async (todo) => {
-    await deleteDoc(doc(db, "todos", todo.id), {
-      completed: false,
-    });
+  const deleteTodo = async (id) => {
+    await deleteDoc(doc(db, "todos", id));
   };
 
   return (
