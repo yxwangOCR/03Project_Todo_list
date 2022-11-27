@@ -8,12 +8,27 @@ import {
   onSnapshot,
   updateDoc,
   doc,
+  addDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 function App() {
   const [todos, setTodo] = useState([]);
+  const [newTodo, setNewTodo] = useState("");
 
   //Create todo
+  const createTodo = async (e) => {
+    e.preventDefault(e);
+    if (newTodo === "") {
+      alert("Please enter a todo");
+      return;
+    }
+    await addDoc(collection(db, "todos"), {
+      text: newTodo,
+      completed: false,
+    });
+    setNewTodo("");
+  };
 
   //Read todo list
   useEffect(() => {
@@ -36,23 +51,41 @@ function App() {
   };
 
   //Delete todo in firebase
+  const deleteTodo = async (todo) => {
+    await deleteDoc(doc(db, "todos", todo.id), {
+      completed: false,
+    });
+  };
 
   return (
     <div className='bg'>
       <div className='app'>
         <h3 className='title'>Todo App</h3>
-        <form className='form'>
-          <input type='text' placeholder='Add Todo' className='input' />
+        <form className='form' onSubmit={createTodo}>
+          <input
+            type='text'
+            placeholder='Add Todo'
+            className='input'
+            value={newTodo}
+            onChange={(e) => setNewTodo(e.target.value)}
+          />
           <button type='submit' className='button'>
             <BsFillPlusCircleFill className='icon' />
           </button>
         </form>
         <ul className='list'>
           {todos.map((todo, index) => (
-            <Todo todo={todo} key={index} toggleComplete={toggleComplete} />
+            <Todo
+              todo={todo}
+              key={index}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+            />
           ))}
         </ul>
-        <p className='remind'>You have 2 todos</p>
+        {todos.length > 0 && (
+          <p className='remind'>You have {todos.length} todos</p>
+        )}
         <ul className='done'></ul>
       </div>
     </div>

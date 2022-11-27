@@ -28,13 +28,13 @@
     @apply w-5 h-5 text-white;
   }
   .list {
-    @apply w-full bg-green p-[0.6em] my-[1em] rounded-lg flex flex-col gap-2;
+    @apply w-full bg-white p-[0.6em] my-[1em] rounded-lg flex flex-col gap-2;
   }
   .list-item {
-    @apply bg-white border-none border-green rounded-lg py-2 px-4 w-full appearance-none leading-normal flex justify-between items-center gap-2 text-base text-green;
+    @apply bg-white border-none border-green rounded-lg py-2 px-4 w-full appearance-none leading-normal flex justify-between items-center gap-2 text-2xl text-green;
   }
   .liCompleted {
-    @apply bg-white border-none border-green rounded-lg py-2 px-4 w-full appearance-none leading-normal flex justify-between items-center gap-2 text-base text-yellow line-through;
+    @apply bg-white border-none border-green rounded-lg py-2 px-4 w-full appearance-none leading-normal flex justify-between items-center gap-2 text-2xl text-yellow line-through;
   }
   .list-content {
     @apply flex items-center justify-center gap-2;

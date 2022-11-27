@@ -1,7 +1,7 @@
 import React from "react";
 import { RiDeleteBinFill } from "react-icons/ri";
 
-const Todo = ({ todo, toggleComplete }) => {
+const Todo = ({ todo, toggleComplete, deleteTodo }) => {
   return (
     <>
       <li className={todo.completed ? "liCompleted" : "list-item"}>
@@ -18,7 +18,7 @@ const Todo = ({ todo, toggleComplete }) => {
             {todo.text}
           </p>
         </div>
-        <button className='button'>
+        <button className='button' onClick={() => deleteTodo(todo.id)}>
           <RiDeleteBinFill className='icon' />
         </button>
       </li>
