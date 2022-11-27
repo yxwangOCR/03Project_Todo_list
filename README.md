@@ -1,8 +1,9 @@
 # Todo List
 
-A todo list built with React and Firebase.
+A todo list built with React, TailwindCSS and Firebase.
 
 - [React](https://fr.reactjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
 - [Firebase](https://firebase.google.com/)
 
 ## Continued development
