@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button {
+    @apply bg-green text-white font-bold py-2 px-4 rounded mx-0 my-auto;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer utilities {
+  .bg {
+    @apply h-screen w-screen p-[1em] bg-gradient-to-r from-green to-yellow flex justify-center text-2xl;
+  }
+  .app {
+    @apply bg-white rounded-lg p-[1em] shadow-lg mobile:w-[370px] tablet:w-[600px] laptop:w-[850px] desktop:w-[1000px];
+  }
+  .title {
+    @apply text-5xl font-bold text-center text-green m-4;
+  }
+  .form {
+    @apply w-full bg-yellow p-[0.6em] my-[1em] rounded-lg flex justify-center gap-2;
+  }
+  .input {
+    @apply bg-white border-none border-green rounded-lg py-1 px-4 block w-full appearance-none leading-normal;
+  }
+  .icon {
+    @apply w-5 h-5 text-white;
+  }
+  .list {
+    @apply w-full bg-green p-[0.6em] my-[1em] rounded-lg flex flex-col gap-2;
+  }
+  .list-item {
+    @apply bg-white border-none border-green rounded-lg py-2 px-4 w-full appearance-none leading-normal flex justify-between items-center gap-2 text-base text-green;
+  }
+  .liCompleted {
+    @apply bg-white border-none border-green rounded-lg py-2 px-4 w-full appearance-none leading-normal flex justify-between items-center gap-2 text-base text-yellow line-through;
+  }
+  .list-content {
+    @apply flex items-center justify-center gap-2;
+  }
+  .remind {
+    @apply text-green font-medium text-center;
+  }
 }
